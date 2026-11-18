@@ -1,0 +1,161 @@
+<!-- generated-by: gemini-ultra -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oddly ReceiptBench — Signed Hardware Leaderboard</title>
+  <style>
+    :root {
+      --ink: #0E1116;
+      --surface: rgba(247, 245, 239, 0.04);
+      --paper: #F7F5EF;
+      --green: #88D445;
+      --orange: #F0592A;
+      --blue: #3B82F6;
+      --red: #E5484D;
+      --muted: rgba(247, 245, 239, 0.68);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 20px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    header {
+      border: 1px solid #283040;
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .prompt {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--green);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0 0 8px; font-size: 1.8rem; }
+    .sub { color: var(--muted); margin: 0; }
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    select {
+      background: var(--surface);
+      color: var(--paper);
+      border: 1px solid #30394A;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+    .table-card {
+      overflow-x: auto;
+      border: 1px solid #283040;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid #232A38; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    td.num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+    td.highlight { color: var(--blue); font-weight: 700; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem; color: var(--paper); }
+    .tier-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #232B3A;
+      color: var(--orange);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .verified-seal {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--green);
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .note { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
+    footer { margin-top: 20px; color: var(--muted); font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="prompt">lab@mac-studio ~ % receipt leaderboard --strict</div>
+      <h1>Oddly ReceiptBench — Signed Hardware Receipts</h1>
+      <p class="sub">Your laptop, your numbers, signed. Every row below passed canonical SHA-256 + Ed25519 verification before build (3 verified receipts).</p>
+    </header>
+
+    <div class="controls">
+      <label>
+        Tier:
+        <select id="tierFilter" onchange="applyFilters()">
+          <option value="all">All tiers</option>
+          <option value="verified-fact-sheet-reference">verified-fact-sheet-reference</option>
+          <option value="local-harness-measured">local-harness-measured</option>
+          <option value="community-self-signed">community-self-signed</option>
+        </select>
+      </label>
+      <label>
+        Architecture:
+        <select id="archFilter" onchange="applyFilters()">
+          <option value="all">All architectures</option>
+          <option value="arm64">arm64</option>
+          <option value="x86_64">x86_64</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="table-card">
+      <table id="receiptTable">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Model &amp; Quant</th>
+            <th>Hardware Profile</th>
+            <th>Prefill 1K (tok/s)</th>
+            <th>1K TTFT (ms)</th>
+            <th>Decode 128 (tok/s)</th>
+            <th>Long TTFT (ms)</th>
+            <th>Peak RSS (GiB)</th>
+            <th>Ed25519 Signature</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr data-tier="local-harness-measured" data-arch="arm64"><td><span class="tier-pill">local-harness-measured</span></td><td><strong>deterministic-cpu-kernel</strong> <code>SHA256-FSM</code><div class="note">Live deterministic Python CPU harness executed locally during build.</div></td><td>Apple M4 Max · <code>arm64</code> · 36.0 GiB</td><td class="num">2653907.98</td><td class="num">0.32</td><td class="num highlight">214930.30</td><td class="num">1.41</td><td class="num">0.03</td><td><span class="verified-seal">ED25519 OK</span><br><code>ed25519:032e5d3563a429ad</code></td></tr>
+        <tr data-tier="verified-fact-sheet-reference" data-arch="arm64"><td><span class="tier-pill">verified-fact-sheet-reference</span></td><td><strong>Qwen3.5-4B</strong> <code>Q4_K_M</code><div class="note">Verified SPIKE FACT-SHEET.md figure: Apple M4 Max Metal, 82 tok/s at 1K (0.9 s TTFT), 80 tok/s at 8K (7.2 s TTFT), 3.6 GiB RSS.</div></td><td>Apple M4 Max · <code>arm64</code> · 36.0 GiB</td><td class="num">82.00</td><td class="num">900.00</td><td class="num highlight">82.00</td><td class="num">7200.00</td><td class="num">3.60</td><td><span class="verified-seal">ED25519 OK</span><br><code>ed25519:032e5d3563a429ad</code></td></tr>
+        <tr data-tier="verified-fact-sheet-reference" data-arch="x86_64"><td><span class="tier-pill">verified-fact-sheet-reference</span></td><td><strong>Qwen3.5-4B</strong> <code>Q4_K_M</code><div class="note">Verified SPIKE FACT-SHEET.md figure: 16 GB 4-core CPU-only, 6.2 tok/s at 1K (52 s first token), 5.1 tok/s at 8K (13 min first token), 6.1 GiB RSS.</div></td><td>4-Core x86_64 CPU-Only · <code>x86_64</code> · 16.0 GiB</td><td class="num">6.20</td><td class="num">52000.00</td><td class="num highlight">6.20</td><td class="num">780000.00</td><td class="num">6.10</td><td><span class="verified-seal">ED25519 OK</span><br><code>ed25519:032e5d3563a429ad</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      Apache-2.0 · Zero telemetry · Submit your signed <code>.receipt.json</code> via Pull Request; GitHub Actions runs <code>receipt verify</code> automatically.
+    </footer>
+  </div>
+  <script>
+    function applyFilters() {
+      const tier = document.getElementById('tierFilter').value;
+      const arch = document.getElementById('archFilter').value;
+      for (const row of document.querySelectorAll('#receiptTable tbody tr')) {
+        const okTier = (tier === 'all' || row.dataset.tier === tier);
+        const okArch = (arch === 'all' || row.dataset.arch === arch);
+        row.style.display = (okTier && okArch) ? '' : 'none';
+      }
+    }
+  </script>
+</body>
+</html>

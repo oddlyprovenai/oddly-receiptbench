@@ -1,0 +1,68 @@
+{
+  "_generated_by": "gemini-ultra",
+  "backend": "deterministic-harness",
+  "hardware": {
+    "arch": "arm64",
+    "cpu_brand": "Apple M4 Max",
+    "logical_cores": 14,
+    "os_family": "macOS",
+    "python_version": "3.14.7",
+    "ram_gib": 36.0
+  },
+  "model": {
+    "name": "deterministic-cpu-kernel",
+    "quantization": "SHA256-FSM",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "schema_version": "receiptbench.v1",
+  "seed": "oddly-v1",
+  "signature": {
+    "algorithm": "Ed25519",
+    "key_fingerprint": "ed25519:032e5d3563a429ad",
+    "payload_sha256": "7f5144293cf2336d2acb93da771df980e86146323fa403dc4d8e9d9d34bb5d50",
+    "public_key_hex": "07680dc44cac5267d5d4dcc01bf4044f9388397308f734df0910aad5e925108b",
+    "signature_hex": "9b2878e0a52df49d9900e10eda9fc2d4a1423a45d137de825c57ddaafd17c59a09b041a12b99b8bc4bb192072176d182c01d74bfacaa0b8005569136276d0a0c"
+  },
+  "source_note": "Live deterministic Python CPU harness executed locally during build.",
+  "synthetic_non_training_fixture": true,
+  "tasks": [
+    {
+      "exact_match": true,
+      "output_sha256": "a9c013009babc097caf1fc02dc5de8975ca012ade150cd2357bd07f85324afd3",
+      "output_tokens": 16,
+      "peak_rss_gib": 0.034,
+      "prompt_sha256": "8664a2c53494ed77a7fe6574509094a877bb10c1051bafdb6aaf8cb8c75f0274",
+      "prompt_tokens": 1024,
+      "task_id": "prefill_1k",
+      "tok_per_sec": 2653907.98,
+      "total_ms": 0.392,
+      "ttft_ms": 0.317
+    },
+    {
+      "exact_match": true,
+      "output_sha256": "7356676606b6e17f46039e3fecb094ffaf192be229af9540aea639c4fa2f8974",
+      "output_tokens": 128,
+      "peak_rss_gib": 0.034,
+      "prompt_sha256": "474dc2621e45e86dbb9353d9378be3f59021bb6f64645caa2faa5ec78d98b485",
+      "prompt_tokens": 128,
+      "task_id": "decode_128",
+      "tok_per_sec": 214930.3,
+      "total_ms": 0.638,
+      "ttft_ms": 0.05
+    },
+    {
+      "exact_match": true,
+      "output_sha256": "f53a9db46897c0786013a249449ed1ef9f4e7037be1b203a9816bd9abcd5b858",
+      "output_tokens": 16,
+      "peak_rss_gib": 0.034,
+      "prompt_sha256": "1d79c92b40b10478b257ef26189a52c47acee0198936573f9a4192706e389e80",
+      "prompt_tokens": 4096,
+      "task_id": "needle_4k",
+      "tok_per_sec": 2782215.01,
+      "total_ms": 1.478,
+      "ttft_ms": 1.407
+    }
+  ],
+  "tier": "local-harness-measured",
+  "timestamp_utc": "2026-11-18T00:22:13Z"
+}

@@ -1,0 +1,46 @@
+# generated-by: gemini-ultra
+name: CI & Receipt Leaderboard Verification
+
+on:
+  push:
+    branches: ["main", "gemini/**"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python3 -m pip install --quiet pytest "cryptography>=42.0.0"
+
+      - name: Run unit, tamper, card, and CLI test suite
+        run: PYTHONPATH=src python3 -m pytest -v
+
+      - name: Verify all submitted community & reference receipts (Ed25519 + OPSEC)
+        run: |
+          for f in receipts/*.receipt.json; do
+            PYTHONPATH=src python3 -m receiptbench verify "$f"
+          done
+
+      - name: Spot-check deterministic local harness receipt
+        run: |
+          PYTHONPATH=src python3 -m receiptbench verify receipts/01_local_harness_measured.receipt.json --spot-check
+
+      - name: Build static leaderboard in strict PR gate mode
+        run: |
+          PYTHONPATH=src python3 -m receiptbench leaderboard \
+            --receipts-dir receipts \
+            --output /tmp/leaderboard.html \
+            --strict

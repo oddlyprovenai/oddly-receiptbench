@@ -1,0 +1,11 @@
+# generated-by: gemini-ultra
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.receipt-keys/
+*.priv.hex
+.coverage

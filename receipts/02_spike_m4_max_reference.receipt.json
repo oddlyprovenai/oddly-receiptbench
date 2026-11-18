@@ -1,0 +1,68 @@
+{
+  "_generated_by": "gemini-ultra",
+  "backend": "llama-cpp-metal-reference",
+  "hardware": {
+    "arch": "arm64",
+    "cpu_brand": "Apple M4 Max",
+    "logical_cores": 14,
+    "os_family": "macOS",
+    "python_version": "3.14.7",
+    "ram_gib": 36.0
+  },
+  "model": {
+    "name": "Qwen3.5-4B",
+    "quantization": "Q4_K_M",
+    "sha256": "4b004b004b004b004b004b004b004b004b004b004b004b004b004b004b004b00"
+  },
+  "schema_version": "receiptbench.v1",
+  "seed": "oddly-v1",
+  "signature": {
+    "algorithm": "Ed25519",
+    "key_fingerprint": "ed25519:032e5d3563a429ad",
+    "payload_sha256": "a003663e708a45978538f5f3bf84346b8d3a55de9445f8450895c9763b6b4050",
+    "public_key_hex": "07680dc44cac5267d5d4dcc01bf4044f9388397308f734df0910aad5e925108b",
+    "signature_hex": "ca775a968803dd64bb7d981ec74050870b5d1fc168c823f74edf6fe957dadb10c9488397e9c9f9f5a913df722cbd8dc3ada94f05e7ed4ac1ff532c8d7b98a407"
+  },
+  "source_note": "Verified SPIKE FACT-SHEET.md figure: Apple M4 Max Metal, 82 tok/s at 1K (0.9 s TTFT), 80 tok/s at 8K (7.2 s TTFT), 3.6 GiB RSS.",
+  "synthetic_non_training_fixture": true,
+  "tasks": [
+    {
+      "exact_match": true,
+      "output_sha256": "a9c013009babc097caf1fc02dc5de8975ca012ade150cd2357bd07f85324afd3",
+      "output_tokens": 16,
+      "peak_rss_gib": 3.6,
+      "prompt_sha256": "8664a2c53494ed77a7fe6574509094a877bb10c1051bafdb6aaf8cb8c75f0274",
+      "prompt_tokens": 1024,
+      "task_id": "prefill_1k",
+      "tok_per_sec": 82.0,
+      "total_ms": 1095.12,
+      "ttft_ms": 900.0
+    },
+    {
+      "exact_match": true,
+      "output_sha256": "7356676606b6e17f46039e3fecb094ffaf192be229af9540aea639c4fa2f8974",
+      "output_tokens": 128,
+      "peak_rss_gib": 3.6,
+      "prompt_sha256": "474dc2621e45e86dbb9353d9378be3f59021bb6f64645caa2faa5ec78d98b485",
+      "prompt_tokens": 128,
+      "task_id": "decode_128",
+      "tok_per_sec": 82.0,
+      "total_ms": 1560.98,
+      "ttft_ms": 225.0
+    },
+    {
+      "exact_match": true,
+      "output_sha256": "f53a9db46897c0786013a249449ed1ef9f4e7037be1b203a9816bd9abcd5b858",
+      "output_tokens": 16,
+      "peak_rss_gib": 3.6,
+      "prompt_sha256": "1d79c92b40b10478b257ef26189a52c47acee0198936573f9a4192706e389e80",
+      "prompt_tokens": 4096,
+      "task_id": "needle_4k",
+      "tok_per_sec": 80.0,
+      "total_ms": 7400.0,
+      "ttft_ms": 7200.0
+    }
+  ],
+  "tier": "verified-fact-sheet-reference",
+  "timestamp_utc": "2026-11-18T00:22:13Z"
+}
